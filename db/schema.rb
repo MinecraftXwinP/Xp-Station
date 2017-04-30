@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170425084800) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "players", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -30,12 +33,11 @@ ActiveRecord::Schema.define(version: 20170425084800) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "uuid"
-    t.string   "minecraft_id"
+    t.string   "minecraft_token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_players_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_players_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
   end
 
 end

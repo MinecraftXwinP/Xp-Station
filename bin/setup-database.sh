@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 database_container_name=$(basename $(pwd) | tr '[:upper:]' '[:lower:]')-dev-database 
 data_dir=$(pwd)/tmp/dev-database

@@ -31,8 +31,7 @@ class DeviseCreatePlayers < ActiveRecord::Migration[5.0]
       t.datetime :locked_at
 
       # Minecraft
-      t.string :uuid
-      t.string :minecraft_id
+      t.string   :minecraft_token
 
 
       t.timestamps null: false
