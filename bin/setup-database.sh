@@ -8,7 +8,7 @@ create_container() {
   if [ ! -d $data_dir ]; then
     mkdir -p $data_dir
   fi
-  docker run -d -v $data_dir:/var/lib/postgresql/data -p 3001:5432 --name $database_container_name postgres
+  docker run -d -v $data_dir:/var/lib/postgresql/data -v /etc/passwd:/etc/passwd:ro --user $(id -u):$(id -g) -p 3001:5432 --name $database_container_name postgres
 }
 
 if [ ! "$(docker ps -all| grep $database_container_name)" ]; then
@@ -24,5 +24,4 @@ if [ ! "$(docker ps | grep $database_container_name)" ]; then
   docker start $database_container_name
   echo "Done!"
 fi
-
 
