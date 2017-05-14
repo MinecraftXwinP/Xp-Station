@@ -32,6 +32,7 @@ class DeviseCreatePlayers < ActiveRecord::Migration[5.0]
 
       # Minecraft
       t.string   :minecraft_token
+      t.index :minecraft_token,unique: true
 
 
       t.timestamps null: false
@@ -39,7 +40,7 @@ class DeviseCreatePlayers < ActiveRecord::Migration[5.0]
 
     add_index :players, :email,                unique: true
     add_index :players, :reset_password_token, unique: true
-    # add_index :players, :confirmation_token,   unique: true
-    # add_index :players, :unlock_token,         unique: true
+    add_index :players, :confirmation_token,   unique: true
+    add_index :players, :unlock_token,         unique: true
   end
 end

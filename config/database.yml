@@ -21,7 +21,6 @@ development: &dev
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
   <<: *dev
 production:
   <<: *default
