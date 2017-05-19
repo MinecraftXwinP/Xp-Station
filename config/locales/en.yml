@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  menu:
+    home: Home
+    rules: Rules
+    staff: Staff
+    corner: Player Corner
+    login: Sign-in
+    registration: Sign-up

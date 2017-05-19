@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'player_corner/index'
+  root 'welcome#index'
+
+  get 'me',to: 'player_corner#index'
 
   devise_for :players,controllers: {
     registrations: 'players/registrations'

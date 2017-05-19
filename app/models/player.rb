@@ -7,5 +7,4 @@ class Player < ApplicationRecord
   def new_minecraft_token
     self.minecraft_token = generate_unique_secure_token
   end
-
 end
