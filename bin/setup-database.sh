@@ -11,7 +11,7 @@ create_container() {
   docker run -d -v $data_dir:/var/lib/postgresql/data -v /etc/passwd:/etc/passwd:ro --user $(id -u):$(id -g) -p 3001:5432 --name $database_container_name postgres
 }
 
-if [ ! "$(docker ps -all| grep $database_container_name)" ]; then
+if [ ! "$(docker ps --all | grep $database_container_name)" ]; then
   # container doesn't exist, create one
   echo "Database container doesn't exist.Creating..."
   create_container
